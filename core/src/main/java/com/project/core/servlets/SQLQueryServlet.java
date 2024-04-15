@@ -37,6 +37,13 @@ public class SQLQueryServlet extends SlingAllMethodsServlet {
                     Property property = node.setProperty("redirectURL", "demo");
                     System.out.println(property);
 
+
+
+
+
+
+
+                    
                 }
             }
             session.save();
