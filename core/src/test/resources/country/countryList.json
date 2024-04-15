@@ -1,0 +1,40 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "item0": {
+    "jcr:primaryType": "nt:unstructured",
+    "country": "India",
+    "statesList": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "addstate": "MH"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "addstate": "UP"
+      }
+    }
+  },
+  "item1": {
+    "jcr:primaryType": "nt:unstructured",
+    "country": "AUS",
+    "statesList": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "addstate": "Sydney"
+      }
+    }
+  },
+  "item2": {
+    "jcr:primaryType": "nt:unstructured",
+    "country": "AJA",
+    "statesList": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "addstate": "STa"
+      }
+    }
+  }
+}

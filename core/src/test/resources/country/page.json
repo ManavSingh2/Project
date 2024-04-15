@@ -1,0 +1,170 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Mon Nov 20 2023 14:55:01 GMT+0530",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Test",
+    "cq:template": "/conf/aem-project/settings/wcm/templates/test",
+    "jcr:created": "Mon Nov 20 2023 14:55:01 GMT+0530",
+    "cq:lastModified": "Fri Jan 05 2024 16:27:24 GMT+0530",
+    "sling:resourceType": "aem-project/components/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "layout": "responsiveGrid",
+      "sling:resourceType": "aem-project/components/container",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "aem-project/components/container"
+      },
+      "container_1568815302": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Mon Nov 20 2023 14:53:20 GMT+0530",
+        "jcr:lastModified": "Mon Nov 20 2023 14:53:27 GMT+0530",
+        "sling:resourceType": "aem-project/components/container",
+        "countrystate": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Wed Jan 03 2024 16:58:01 GMT+0530",
+          "jcr:lastModified": "Wed Jan 03 2024 16:58:39 GMT+0530",
+          "sling:resourceType": "aem-project/components/custom/countrystate",
+          "countryList": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "jcr:primaryType": "nt:unstructured",
+              "country": "India",
+              "statesList": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "addstate": "MH"
+                },
+                "item1": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "addstate": "UP"
+                }
+              }
+            },
+            "item1": {
+              "jcr:primaryType": "nt:unstructured",
+              "country": "AUS",
+              "statesList": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "addstate": "Sydney"
+                }
+              }
+            }
+          }
+        },
+        "dropdown": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Thu Jan 04 2024 13:16:40 GMT+0530",
+          "jcr:lastModified": "Thu Jan 04 2024 14:26:12 GMT+0530",
+          "sling:resourceType": "aem-project/components/dropdown",
+          "countries": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "jcr:primaryType": "nt:unstructured",
+              "countryName": "India",
+              "states": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "stateName": "MH"
+                },
+                "item1": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "stateName": "UP"
+                }
+              }
+            },
+            "item1": {
+              "jcr:primaryType": "nt:unstructured",
+              "countryName": "AUS",
+              "states": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "stateName": "Sydney"
+                },
+                "item1": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "stateName": "Melbourn"
+                }
+              }
+            },
+            "item2": {
+              "jcr:primaryType": "nt:unstructured",
+              "countryName": "US",
+              "states": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "stateName": "a"
+                }
+              }
+            }
+          }
+        },
+        "countrystate_1594349545": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Fri Jan 05 2024 16:26:42 GMT+0530",
+          "jcr:lastModified": "Fri Jan 05 2024 16:27:24 GMT+0530",
+          "sling:resourceType": "aem-project/components/countrystate",
+          "countryList": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "jcr:primaryType": "nt:unstructured",
+              "country": "India",
+              "statesList": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "addstate": "MH"
+                },
+                "item1": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "addstate": "UP"
+                }
+              }
+            },
+            "item1": {
+              "jcr:primaryType": "nt:unstructured",
+              "country": "AUS",
+              "statesList": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "addstate": "Sydney"
+                }
+              }
+            },
+            "item2": {
+              "jcr:primaryType": "nt:unstructured",
+              "country": "AJA",
+              "statesList": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "addstate": "STa"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
