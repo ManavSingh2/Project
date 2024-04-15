@@ -1,0 +1,11 @@
+<sly data-sly-use.sideNavigation="${'com.project.core.models.SideNavigationListModel'}"></sly>
+<div data-sly-list.sideNavigationItems="${sideNavigation.sections}">
+    <h4> ${sideNavigationItems.label}</h4>
+    <h4> ${sideNavigationItems.url}</h4>
+    <h4> ${sideNavigationItems.openInNewTab}</h4>
+    <ul data-sly-list="${sideNavigationItems.links}">
+        <li>${item.label @ context='html'}</li>
+        <li>${item.url @ context='html'}</li>
+        <li>${item.openInNewTab @ context='html'}</li>
+    </ul>
+</div>
