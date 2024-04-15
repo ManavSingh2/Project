@@ -1,0 +1,17 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='product'}"/>
+    <center>
+        <select class="form-select" id="gender" name="gender">
+            <option value="all">All</option>
+            <option selected value="men">Men</option>
+            <option value="women">Women</option>
+        </select>
+        <br><br>
+        <div class="container">
+            <div class="card-group" id="dataList"></div>
+            <br><br>
+            <div class="pagination-box"></div>
+        </div>
+    </center>
+</sly>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
