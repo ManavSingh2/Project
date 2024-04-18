@@ -98,7 +98,7 @@ class ProductDetailServletTest {
         Map<String, String> map = new HashMap<>();
         map.put("ProductName", productName);
         productDetailServlet.doGet(request, response);
-        assertEquals(map.size(), 1);
+        assertEquals(1,map.size());
 
     }
 
@@ -127,7 +127,7 @@ class ProductDetailServletTest {
         Map<String, String> map = new HashMap<>();
         map.put("price", price);
         productDetailServlet.doGet(request, response);
-        assertEquals(map.size(), 1);
+        assertEquals( 1,map.size());
 
     }
 
