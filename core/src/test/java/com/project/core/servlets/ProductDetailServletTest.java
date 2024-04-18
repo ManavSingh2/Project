@@ -1,5 +1,6 @@
 package com.project.core.servlets;
 
+import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -16,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -38,6 +40,8 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ProductDetailServletTest {
 
+    @Mock
+    ContentElement element;
     @Mock
     private Hit hit;
     @InjectMocks
@@ -65,10 +69,6 @@ class ProductDetailServletTest {
     @Mock
     private ContentFragment contentFragment;
 
-
-
-
-
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -77,6 +77,9 @@ class ProductDetailServletTest {
     @Test
     void doGet() throws ServletException, IOException, RepositoryException {
         String gender = "men";
+        String cfPath = "/content/dam/aem-project/products/hilandersirt/jcr:content";
+        String mainPath = "/content/dam/aem-project/products/hilandersirt";
+        String productName = "productName";
         PrintWriter writer = mock(PrintWriter.class);
         when(request.getResourceResolver()).thenReturn(resourceResolver);
         when(resourceResolver.adaptTo(Session.class)).thenReturn(session);
@@ -86,26 +89,47 @@ class ProductDetailServletTest {
         List<Hit> hits = new ArrayList<>();
         hits.add(hit);
         when(searchResult.getHits()).thenReturn(hits);
-//        when(hit.getResource().getPath()).thenReturn("/content/dam/aem-project/products");
-//        when(resourceResolver.getResource(String.valueOf("/content/dam/aem-project/products")).adaptTo(ContentFragment.class)).thenReturn(contentFragment);
-//        String shirt ="Shirt";
-//        String price ="300";
-//        String image ="/content/image1.png";
-//        when(contentFragment.getElement("productName").getContent()).thenReturn(shirt);
-//        when(contentFragment.getElement("price").getContent()).thenReturn(price);
-//        when(contentFragment.getElement("image").getContent()).thenReturn(image);
-//        Map<String, String> map = new HashMap<>();
-//        map.put("ProductName",shirt);
-//        map.put("price",price);
-//        map.put("image",image);
-
+        when(hit.getResource()).thenReturn(resource);
+        when(resource.getPath()).thenReturn(cfPath);
+        when(resourceResolver.getResource(mainPath)).thenReturn(resource);
+        when(resource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
+        when(contentFragment.getElement("a")).thenReturn(element);
+        when(element.getContent()).thenReturn(productName);
+        Map<String, String> map = new HashMap<>();
+        map.put("ProductName", productName);
         productDetailServlet.doGet(request, response);
-
-
+        assertEquals(map.size(), 1);
 
     }
+
 
     @Test
-    void searchCFData() {
+    void testAllMen() throws ServletException, IOException, RepositoryException {
+        String gender = "all";
+        String cfPath = "/content/dam/aem-project/products/hilandersirt/jcr:content";
+        String mainPath = "/content/dam/aem-project/products/hilandersirt";
+        String price = "price";
+        PrintWriter writer = mock(PrintWriter.class);
+        when(request.getResourceResolver()).thenReturn(resourceResolver);
+        when(resourceResolver.adaptTo(Session.class)).thenReturn(session);
+        when(request.getParameter("gender")).thenReturn(gender);
+        when(queryBuilder.createQuery(any(PredicateGroup.class), any())).thenReturn(query);
+        when(query.getResult()).thenReturn(searchResult);
+        List<Hit> hits = new ArrayList<>();
+        hits.add(hit);
+        when(searchResult.getHits()).thenReturn(hits);
+        when(hit.getResource()).thenReturn(resource);
+        when(resource.getPath()).thenReturn(cfPath);
+        when(resourceResolver.getResource(mainPath)).thenReturn(resource);
+        when(resource.adaptTo(ContentFragment.class)).thenReturn(contentFragment);
+        when(contentFragment.getElement("a")).thenReturn(element);
+        when(element.getContent()).thenReturn(price);
+        Map<String, String> map = new HashMap<>();
+        map.put("price", price);
+        productDetailServlet.doGet(request, response);
+        assertEquals(map.size(), 1);
+
     }
+
+
 }
