@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPaths;
@@ -31,7 +32,7 @@ import java.util.*;
 public class ProductDetailServlet extends SlingAllMethodsServlet {
 
     @Reference
-    private QueryBuilder queryBuilder;
+    QueryBuilder queryBuilder;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
@@ -60,16 +61,17 @@ public class ProductDetailServlet extends SlingAllMethodsServlet {
             Query query = Optional.ofNullable(queryBuilder).map(qb -> queryBuilder.createQuery(PredicateGroup.create(getPredicates(gender)), session)).orElse(null);
             SearchResult result = query.getResult();
             List<Hit> hits = result.getHits();
-            hits.stream().forEach(hit -> {
+            for (Hit hit : hits) {
                 try {
                     String path = hit.getResource().getPath();
                     String mainPath = StringUtils.substringBeforeLast(path, "/jcr:content");
-                    ContentFragment contentFragment = resourceResolver.getResource(mainPath).adaptTo(ContentFragment.class);
+                    Resource resource = resourceResolver.getResource(mainPath);
+                    ContentFragment contentFragment = resource.adaptTo(ContentFragment.class);
                     getProductNamePriceAndImage(contentFragment, listOfMap);
                 } catch (RepositoryException e) {
                     log.error("Error from retrieving products Data from CF", e);
                 }
-            });
+            }
         } catch (Exception e) {
             log.error("Error while retrieving products Data", e);
         }
@@ -81,6 +83,7 @@ public class ProductDetailServlet extends SlingAllMethodsServlet {
         String productName = Optional.ofNullable(contentFragment)
                 .map(cf -> cf.getElement("productName").getContent())
                 .orElse(null);
+
 
         String price = Optional.ofNullable(contentFragment)
                 .map(cf -> cf.getElement("price").getContent())
