@@ -101,7 +101,7 @@ public class ProductDetailServlet extends SlingAllMethodsServlet {
     }
 
 
-    final private Map<String, String> getPredicates(String gender) {
+    private final Map<String, String> getPredicates(String gender) {
         final String PROPERTY = "property";
         Map<String, String> predicates = new HashMap<>();
         predicates.put("path", "/content/dam/aem-project/products");
