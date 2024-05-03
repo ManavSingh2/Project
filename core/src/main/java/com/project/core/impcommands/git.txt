@@ -1,0 +1,24 @@
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=27 -D appTitle="AEM Project" -D appId="aem-project" -D groupId="com.aemproject" -D frontendModule="general" -D includeExamples=n -D includeErrorHandler=n -D amp=n -D includeDispatcherConfig=n -D aemVersion=6.5.8
+
+
+1)git init
+
+git  remote add origin  (url)
+
+
+2) git add .
+
+3)git status
+
+4) git commit -m "First commit"
+
+             go to git project then clone then copy url
+5) git remote add origin     (url copied from gitlab)
+
+6) git push -u origin master
+
+
+
+note:
+never commit .dir bak   and readme         just delete that
+donot push orgin and master 
