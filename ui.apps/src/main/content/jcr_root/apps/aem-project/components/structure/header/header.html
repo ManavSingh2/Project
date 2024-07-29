@@ -1,0 +1,12 @@
+<sly data-sly-use.header="com.project.core.models.HeaderModel">
+    <div><img alt="${header.altText}" src="${header.imagePath}"/></div>
+    <div data-sly-list.nav="${header.navList}">
+        <ul>
+            <li>
+                <a href="${nav.path}.html">
+                    ${nav.title}
+                </a>
+            </li>
+        </ul>
+    </div>
+</sly>
